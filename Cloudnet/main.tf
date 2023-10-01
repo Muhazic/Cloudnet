@@ -1590,10 +1590,3 @@ resource "aws_sns_topic_subscription" "sns_sec" {
   protocol  = "email"
   endpoint  = "muhazic3@gmail.com"
 }
-
-
-
-// The number of HTTP GET requests made for objects in a bucket. Requires detailed monitoring to be enabled.
-// touch up code/ review
-// add to github
-// post on linkedin
