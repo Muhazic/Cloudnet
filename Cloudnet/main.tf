@@ -1584,7 +1584,6 @@ resource "aws_sns_topic" "sns_sec" {
     "Name" = "sns${var.environment_sec}"
   }
 }
-
 resource "aws_sns_topic_subscription" "sns_sec" {
   provider  = aws.secondary
   topic_arn = aws_sns_topic.sns_sec.arn
