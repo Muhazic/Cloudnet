@@ -1,0 +1,10 @@
+#cloud-config
+packages:
+  - apache2
+  - awscli
+
+runcmd:
+  - sudo apt update -y
+  - sudo aws s3 cp s3://mfejzic37/host/index.html /var/www/html/
+  - sudo systemctl start apache2
+  - sudo systemctl enable apache2
