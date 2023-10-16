@@ -744,7 +744,7 @@ resource "aws_cloudwatch_metric_alarm" "get_requests_S3_alarm" {
   provider            = aws.primary
   alarm_name          = "GetRequests"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = 1
+  evaluation_periods  = 2
   metric_name         = "GetRequests"
   namespace           = "AWS/S3"
   period              = 60
@@ -1558,7 +1558,7 @@ resource "aws_cloudwatch_metric_alarm" "get_requests_S3_alarm_sec" {
   provider            = aws.secondary
   alarm_name          = "GetRequests_sec"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = 1
+  evaluation_periods  = 2
   metric_name         = "GetRequests"
   namespace           = "AWS/S3"
   period              = 60
@@ -1566,7 +1566,7 @@ resource "aws_cloudwatch_metric_alarm" "get_requests_S3_alarm_sec" {
   unit                = "Count"
   threshold           = 3
   alarm_description   = "Alarm for S3 number of get requests exceeding threshold"
-  alarm_actions       = [aws_sns_topic.sns_sec.arn]
+  alarm_actions       = [aws_sns_topic.sns_sec.arn] 
   dimensions = {
     BucketName = aws_s3_bucket.ec2_bucket_sec.bucket
   }
