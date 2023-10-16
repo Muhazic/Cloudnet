@@ -1,4 +1,4 @@
-#SSH INTO PUBLIC INSTANCE
+                    ## HOW TO SSH INTO PRIVATE INSTANCES ##
 #START SSH AGENT ON YOUR LOCAL MACHINE, ENSURE AGENT IS RUNNING,  ADD IDENTITY 
 ssh-agent -s
 eval $(ssh-agent -s)
@@ -9,10 +9,12 @@ ssh -A ubuntu@publicIP  // Agent Forwarding will automatically use your local ke
 # LOG INTO PRIVATE INSTANCE 
 ssh ubuntu@privateIP
 
+#SSH INTO PUBLIC INSTANCE WITHOUT AGENT FORWARDING
+ssh -i bastionKP.pem ec2-user@publicIP
+
+
 # check if DNS resolution is working as expected
 nslookup www.google.com 
-
-
 
 
 # Enable the SSL module and HTTPS site on instance
@@ -30,6 +32,7 @@ sudo apt update -y
 sudo apt install -y apache2
 #Install aws cli
 sudo apt install awscli
+
 
 #CHECK STATUS OF APACHE
 sudo systemctl status  apache2
