@@ -1,10 +1,8 @@
 terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "default-mf"
-    workspaces {
-      name = "Cloudnet"
-    }
+  backend "s3" {
+    bucket = "terraform-state-file-mf37" // tf state will be stored here
+    key    = "cloudnet/infra"
+    //region = var.primary_region
   }
 
   required_version = ">= 1.0.0"
@@ -14,7 +12,7 @@ terraform {
       version = "5.18.1" 
       
     }
-  }
+  } 
 }
 
 provider "aws" {
@@ -39,7 +37,7 @@ backend "remote" {
     hostname     = "app.terraform.io"
     organization = "default-mf"
     workspaces {
-      name = "workspace1"
+      name = "Cloudnet"
     }
   }
   
@@ -48,7 +46,7 @@ Swtich to s3 backend
 
 backend "s3" {
     bucket = "terraform-state-file-mf37" // tf state will be stored here
-    key    = "web_host/resume/ec2/infra"
+    key    = "cloudnet/infra"
     //region = var.primary_region
   }
 
