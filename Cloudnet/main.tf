@@ -1419,7 +1419,7 @@ resource "aws_launch_template" "launch_template_sec" {
   tags = {
     "Name" = "launch_template${var.environment_sec}"
   }
-  user_data = filebase64("userdata.yaml")
+  user_data = filebase64("userdata_sec.yaml")
 }
 
 resource "aws_autoscaling_group" "asg_sec" {
